@@ -11,4 +11,9 @@ import "testing"
 
 func TestExcel(t *testing.T) {
 
+	n := GetColumnNumberFromName("AA")
+	t.Log(n)
+
+	s := GetColumnNameFromNumber(21)
+	t.Log(s)
 }

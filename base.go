@@ -441,3 +441,23 @@ func RgbStrToHex(rgbStr string) uint64 {
 	}
 	return uint64(hex)
 }
+
+// GetColumnNameFromNumber 从列数获取列名, 失败时返回空字符串
+func GetColumnNameFromNumber(num int) string {
+	s, e := excelize.ColumnNumberToName(num)
+	if e != nil {
+		fmt.Printf("从列数获取列名失败%s\n", e.Error())
+		return ""
+	}
+	return s
+}
+
+// GetColumnNumberFromName 从列数获取列名, 失败时返回-1
+func GetColumnNumberFromName(name string) int {
+	n, e := excelize.ColumnNameToNumber(name)
+	if e != nil {
+		fmt.Printf("从列名获取列数失败%s\n", e.Error())
+		return -1
+	}
+	return n
+}
